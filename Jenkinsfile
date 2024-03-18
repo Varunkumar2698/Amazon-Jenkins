@@ -4,7 +4,7 @@ pipeline {
 
         stage('pull') {
             steps {
-                git branch: 'main', url: 'https://github.com/PraveenKuber/Amazon-Jenkins.git'
+                git branch: 'main', url: 'https://github.com/Varunkumar2698/Amazon.git'
             }
         }
             
@@ -27,8 +27,8 @@ pipeline {
     }
     post {
         always {
-            archiveArtifacts artifacts: '**/*.jar', followSymlinks: false
-            deploy adapters: [tomcat9(credentialsId: '9551387d-fc2a-401d-b340-7a8290e60ef6', path: '', url: 'http://localhost:8085/manager/html')], contextPath: null, war: '**/*.jar'
+            archiveArtifacts artifacts: '**/*.war', followSymlinks: false
+            deploy adapters: [tomcat9(credentialsId: '9551387d-fc2a-401d-b340-7a8290e60ef6', path: '', url: 'http://localhost:8085/manager/html')], contextPath: null, war: '**/*.war'
         }
     }
 }
