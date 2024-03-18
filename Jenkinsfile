@@ -18,25 +18,11 @@ pipeline {
                 sh 'mvn test'
             }
         }
-        stage('deploy to dev environment') {
-            steps {
-                archieveArtifacts artifacts: 'target/*.war', followSymlinks: false
-                
-                
-
-            }
-        }
     }
   post{
-      success{
-       sh 'echo "success in the deployment"'
-   }
-    
-  failure{
-       sh 'echo "Failure in the deployment"'
-   }
+      always {
+                     archieveArtifacts artifacts: 'target/*.war', followSymlinks: false
+            }
 
-  }
-
-
+        }
 }
