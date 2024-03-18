@@ -24,10 +24,10 @@ pipeline {
         stage('deploy to development server') {
             steps {
                 script {
-                    sh "$TOMCAT_HOME/bin/shutdown.sh"
+                    sh "$TOMCAT_HOME/bin/startup.sh"
                     sh "mkdir /home/varun/.jenkins/workspace/Develpment/target"
                     sh "cp /home/varun/.jenkins/workspace/Development/target/*.war ${TOMCAT_HOME}/webapps/"
-                    sh "$TOMCAT_HOME/bin/startup.sh"
+                    
                 }
             }
          }
