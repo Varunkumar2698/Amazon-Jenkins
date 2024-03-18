@@ -20,8 +20,8 @@ pipeline {
         }
         stage('deploy to dev environment') {
             steps {
-                archieveArtifacts artifacts: '**/target/*.war'
-                sh './home/varun/Desktop/files/Dev_environment/apache-tomcat-9.0.86/bin/startup.sh'
+                archieveArtifacts artifacts: '**/*.war'
+                
                 
 
             }
@@ -30,7 +30,7 @@ pipeline {
   post{
     
   failure{
-       sh 'echo "Failure in the build"'
+       sh 'echo "Failure in the deployment"'
    }
 
   }
