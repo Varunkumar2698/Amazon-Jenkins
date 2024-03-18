@@ -18,6 +18,14 @@ pipeline {
                 sh 'mvn test'
             }
         }
+        stage('deploy to dev') {
+            steps {
+                sh 'mkdir -rf /home/varun/.jenkins/workspace/Development/target'
+                sh '/home/varun/Desktop/files/Dev_environment/apache-tomcat-9.0.86/bin/startup.sh'
+                
+'
+            }
+        }
     }
   post{
       always {
