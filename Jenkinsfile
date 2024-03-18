@@ -20,7 +20,7 @@ pipeline {
         }
         stage('deploy to dev environment') {
             steps {
-                archieveArtifacts artifacts: '**/*.war'
+                archieveArtifacts artifacts: 'target/*.war', followSymlinks: false
                 
                 
 
@@ -28,6 +28,9 @@ pipeline {
         }
     }
   post{
+      success{
+       sh 'echo "success in the deployment"'
+   }
     
   failure{
        sh 'echo "Failure in the deployment"'
