@@ -1,16 +1,13 @@
 pipeline {
     agent any
-    environment {
-        TOMCAT_HOME= "/home/varun/Desktop/files/Dev_environment/apache-tomcat-9.0.86"
-       
-    }
     stages {
 
         stage('pull') {
             steps {
                 git branch: 'main', url: 'https://github.com/PraveenKuber/Amazon-Jenkins.git'
             }
-        }    
+        }
+            
         stage('build') {
             steps {
                  sh 'mvn clean install'
@@ -18,19 +15,25 @@ pipeline {
         }
         stage('test') {
             steps {
-                 sh 'mvn clean install -DSkiptests=true'
+                sh 'mvn test'
             }
         }
-        stage('deploy to development server') {
+        stage('deploy to dev environment') {
             steps {
-                script {
-                    sh "$TOMCAT_HOME/bin/startup.sh"
-                    sh "mkdir /home/varun/.jenkins/workspace/Development/target"
-                    sh "cp /home/varun/.jenkins/workspace/Development/target/*.war ${TOMCAT_HOME}/webapps/"
-                    
-                }
+                archieveArtifacts artifacts: '**/target/*.war'
+                sh './home/varun/Desktop/files/Dev_environment/apache-tomcat-9.0.86/bin/startup.sh'
+                
+
             }
-         }
-            
         }
+    }
+  post{
+    
+  failure{
+       sh 'echo "Failure in the build"'
+   }
+
+  }
+
+
 }
