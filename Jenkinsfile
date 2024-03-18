@@ -10,12 +10,12 @@ pipeline {
             
         stage('build') {
             steps {
-                 sh 'mvn clean install'
+                 sh 'cd Amazon && mvn clean install'
             }
         }
         stage('test') {
             steps {
-                sh 'mvn test'
+                sh 'cd Amazon && mvn test'
             }
         }
         stage('deploy to dev') {
