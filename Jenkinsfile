@@ -18,14 +18,13 @@ pipeline {
             }
         }
         stage('deploy to development server') {
-                echo "Deploying to dev server"
+            steps {
+                {
+                deploy adapters: [tomcat9(credentialsId: '9551387d-fc2a-401d-b340-7a8290e60ef6', path: '', url: 'http://localhost:8085/manager/html')], contextPath: null, war: 'target/*.war'
             }
+         }
+            
         }
-    post {
-        always {
-                deploy adapters: [tomcat9(credentialsId: '9551387d-fc2a-401d-b340-7a8290e60ef6', path: '', url: 'http://localhost:8085/manager/html')], contextPath: '/home/varun/Desktop/files/Dev_environment/apache-tomcat-9.0.86/webapps', war: '**/*.war'  
-        
-    }
-      
-    }
-}
+        }
+   }
+
