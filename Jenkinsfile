@@ -21,7 +21,7 @@ pipeline {
     }
   post{
       always {
-                     archieveArtifacts artifacts: 'target/*.war', followSymlinks: false
+                     archiveArtifacts artifacts: 'target/*.war', followSymlinks: false
             }
 
         }
