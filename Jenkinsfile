@@ -25,7 +25,7 @@ pipeline {
             steps {
                 script {
                     sh "$TOMCAT_HOME/bin/startup.sh"
-                    sh "mkdir /home/varun/.jenkins/workspace/Develpment/target"
+                    sh "mkdir /home/varun/.jenkins/workspace/Development/target"
                     sh "cp /home/varun/.jenkins/workspace/Development/target/*.war ${TOMCAT_HOME}/webapps/"
                     
                 }
