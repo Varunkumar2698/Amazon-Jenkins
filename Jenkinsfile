@@ -2,8 +2,7 @@ pipeline {
     agent any
     environment {
         TOMCAT_HOME= "/home/varun/Desktop/files/Dev_environment/apache-tomcat-9.0.86/"
-        WAR_FILE= "Amazon-Jenkins.war"
-"
+        WAR_FILE= "*.war"
     }
     stages {
 
