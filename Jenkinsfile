@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         TOMCAT_HOME= "/home/varun/Desktop/files/Dev_environment/apache-tomcat-9.0.86"
-        WAR_FILE= "*.war"
+       
     }
     stages {
 
@@ -25,7 +25,8 @@ pipeline {
             steps {
                 script {
                     sh "$TOMCAT_HOME/bin/shutdown.sh"
-                    sh "cp target/${WAR_FILE} ${TOMCAT_HOME}/webapps/"
+                    sh "mkdir /home/varun/.jenkins/workspace/Develpment/target"
+                    sh "cp /home/varun/.jenkins/workspace/Development/target/*.war ${TOMCAT_HOME}/webapps/"
                     sh "$TOMCAT_HOME/bin/startup.sh"
                 }
             }
