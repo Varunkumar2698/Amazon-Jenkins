@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'azurenode'
+        label 'azuressh'
     }
     stages {
 
