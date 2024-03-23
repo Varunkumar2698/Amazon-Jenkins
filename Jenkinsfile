@@ -2,6 +2,9 @@ pipeline {
     agent {
         label 'windowsagent'
     }
+    tools{
+        Maven 'mvn381'
+    }
     stages {
 
         stage('pull') {
