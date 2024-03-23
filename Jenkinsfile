@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'azurenode'
+        label 'windowsagent'
     }
     stages {
 
