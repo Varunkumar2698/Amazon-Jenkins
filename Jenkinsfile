@@ -3,7 +3,7 @@ pipeline {
         label 'windowsagent'
     }
     tools{
-        Maven 'mvn381'
+        maven 'mvn381'
     }
     stages {
 
