@@ -4,6 +4,7 @@ pipeline {
     }
     tools{
         maven 'mvn381'
+        git '/usr/bin/git'
     }
     stages {
 
