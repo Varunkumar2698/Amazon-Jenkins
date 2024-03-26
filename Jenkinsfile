@@ -9,7 +9,7 @@ pipeline {
 
         stage('pull') {
             steps {
-                git branch: 'main', url: 'https://github.com/Varunkumar2698/Amazon-Jenkins.git'
+                git 'https://github.com/Varunkumar2698/Amazon-Jenkins.git'
             }
         }
         stage('compile') {
@@ -22,14 +22,13 @@ pipeline {
                  sh 'mvn clean install'
             }
         }
+        post{
+           success{
+               echo 'Build is success'
+           }
+            failure{
+               echo 'Build is failed'
+           }
+        }
     }
-  post{
-    
-  failure{
-       echo 'Failure in the build'
-   }
-
   }
-
-
-}
