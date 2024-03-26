@@ -9,7 +9,7 @@ pipeline {
 
         stage('pull') {
             steps {
-                git 'https://github.com/Varunkumar2698/Amazon-Jenkins.git'
+                git url: 'https://github.com/Varunkumar2698/Amazon-Jenkins.git', branch: 'main', credentialId: 'Github'
             }
         }
         stage('compile') {
