@@ -12,8 +12,7 @@ pipeline {
     }
     stages {
         stage('pull') {
-            steps {
-               
+            steps {               
                 git branch: 'main', url: 'https://github.com/Varunkumar2698/Amazon-Jenkins.git'
             }
         }
@@ -25,7 +24,6 @@ pipeline {
         }    
         stage('build') {
             steps {
-               
                 bat '"%MAVEN_HOME%\\bin\\mvn" clean install'
             }
         }
