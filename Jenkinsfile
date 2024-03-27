@@ -22,10 +22,10 @@ pipeline {
                 bat '"%MAVEN_HOME%\\bin\\mvn" compile'
             }
         }    
-        stage('build') {
-            steps {
-                bat '"%MAVEN_HOME%\\bin\\mvn" clean install'
-            }
-        }
+       // stage('build') {
+       //     steps {
+         //       bat '"%MAVEN_HOME%\\bin\\mvn" clean install'
+         //   }
+        //}
     }
 }
