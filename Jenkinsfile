@@ -4,7 +4,7 @@ pipeline {
     }
     environment {
         JAVA_HOME='C:\\Program Files\\Java\\jdk-17'
-        MAVEN_HOME='C:\Program Files\Maven\apache-maven-3.9.6'
+        MAVEN_HOME='C:\\Program Files\\Maven\\apache-maven-3.9.6'
     }
     tools {
        
