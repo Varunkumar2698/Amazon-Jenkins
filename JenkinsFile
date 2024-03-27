@@ -1,0 +1,27 @@
+pipeline{
+    agent {
+        label 'linuxssh'
+    }
+    stages{
+        stage('checkout'){
+            steps{
+                git 'https://github.com/Varunkumar2698/Amazon-Jenkins.git'
+            }
+        }
+        stage('build'){
+            steps{
+                sh 'mvn clean package'
+            }
+        } 
+        stage('test'){
+            steps{
+                sh 'mvn test'
+            }
+        }  
+        stage('artifact archive'){
+            steps{
+                archiveArtifacts artifacts: '**/target/*.jar'
+            }
+        }
+    }
+}
