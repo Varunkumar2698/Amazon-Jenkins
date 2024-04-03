@@ -1,7 +1,5 @@
 pipeline{
-    agent {
-        label 'linuxssh'
-    }
+    agent any
     stages{
         stage('checkout'){
             steps{
