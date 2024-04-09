@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'linuxssh'
+        label 'Windows-Websocket'
     }
     tools {
         maven 'mvn381'
