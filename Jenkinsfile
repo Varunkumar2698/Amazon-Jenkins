@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools {
+        maven 'mvn381'
+    }
     stages {
 
         stage('pull') {
