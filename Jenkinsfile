@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        label 'azurenode'
-    }
+    agent any
     stages {
 
         stage('pull') {
@@ -18,15 +16,15 @@ pipeline {
             steps {
                  sh 'mvn clean install'
             }
-        }
-    }
-  post{
+
+            post{
     
   failure{
        echo 'Failure in the build'
-   }
+           }
 
+      }
+    }
   }
-
 
 }
