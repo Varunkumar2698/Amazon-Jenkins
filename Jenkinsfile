@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        label 'azuressh'
-    }
+    agent any
     stages {
 
         stage('pull') {
