@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'windowsagent'
+        label 'Windowswebsocket'
     }
     environment {
         JAVA_HOME='C:\\Program Files\\Java\\jdk-17'
